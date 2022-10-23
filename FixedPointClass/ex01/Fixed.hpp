@@ -29,5 +29,4 @@ class Fixed
 
 ostream&	operator<<(ostream& os, const Fixed& num);
 
-
 #endif

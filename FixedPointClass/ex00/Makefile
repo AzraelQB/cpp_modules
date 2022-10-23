@@ -1,7 +1,7 @@
 SRCS	= Fixed.cpp main.cpp
 OBJS	= $(SRCS:.cpp=.o)
 NAME	= Ex00
-CC		= g++
+CC		= clang++
 FLAGS	= -Wall -Wextra -Werror #-std=c++98
 
 

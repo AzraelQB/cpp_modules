@@ -15,9 +15,9 @@ int main(void)
 	cout << "b is " << b << endl;
 	cout << "c is " << c << endl;
 	cout << "d is " << d << endl;
-	cout << "a is " << a.toInt() << " as integer" << endl;
-	cout << "b is " << b.toInt() << " as integer" << endl;
-	cout << "c is " << c.toInt() << " as integer" << endl;
-	cout << "d is " << d.toInt() << " as integer" << endl;
+	cout << "a is " << a.ToInt() << " as integer" << endl;
+	cout << "b is " << b.ToInt() << " as integer" << endl;
+	cout << "c is " << c.ToInt() << " as integer" << endl;
+	cout << "d is " << d.ToInt() << " as integer" << endl;
 	return (0);
 }
