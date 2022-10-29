@@ -19,7 +19,7 @@ class Animal
 	
 		Animal&	operator=(const Animal& other);
 
-		const string&	GetType(void) const = 0;
+		const string&	GetType(void) const;
 
 		virtual void	MakeSound(void) const = 0;
 };

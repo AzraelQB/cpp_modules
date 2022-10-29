@@ -13,7 +13,7 @@ int main(void)
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
-		//jim.SetWeapon(club);
+		jim.SetWeapon(club);
 		jim.Attack();
 		club.SetType("some other type of club");
 		jim.Attack();

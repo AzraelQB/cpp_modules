@@ -1,11 +1,13 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 
 using std::string;
 using std::cout;
 using std::endl;
 using std::ofstream;
 using std::ifstream;
+using std::cerr;
 
 void	readReplaceWrite(ifstream& infile, ofstream& outfile, string& s1, \
 		string& s2)
@@ -43,21 +45,26 @@ int main(int argc, char **argv)
 
 	if (argc != 4)
 	{
-		cout << "Invalid number of args" << endl;
+		cerr << "Invalid number of args" << endl;
 		return (1);
 	}
 	infile.open(argv[1]);
-	outfile.open(string(argv[1]) + string(".replace"));
-	if (infile.fail() || outfile.fail())
+	if (infile.fail())
 	{
-		cout << "Error opening the file" << endl;
+		cerr << "Error opening the infile" << endl;
+		return (1);
+	}
+	outfile.open((string(argv[1]) + string(".replace")).c_str());
+	if (outfile.fail())
+	{
+		cerr << "Error opening the outfile" << endl;
 		return (1);
 	}
 	s1 = argv[2];
 	s2 = argv[3];
 	if (s1 == "" || s2 == "")
 	{
-		cout << "Error: args must have printable characters" << endl;
+		cerr << "Error: args must have printable characters" << endl;
 		return (1);
 	}
 	readReplaceWrite(infile, outfile, s1, s2);
