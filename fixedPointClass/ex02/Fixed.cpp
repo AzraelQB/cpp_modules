@@ -57,28 +57,30 @@ Fixed&	Fixed::operator=(const Fixed& num)
 	return (*this);
 }
 
-Fixed	Fixed::operator+(const Fixed& num)
+Fixed	Fixed::operator+(const Fixed& num) const
 {
-	Fixed res(this->GetRawBits() + num.GetRawBits());
+	Fixed res;
 
+	res.SetRawBits(this->GetRawBits() + num.GetRawBits());
 	return (res);
 }
 
-Fixed	Fixed::operator-(const Fixed& num)
+Fixed	Fixed::operator-(const Fixed& num) const
 {
-	Fixed res(this->GetRawBits() - num.GetRawBits());
+	Fixed res;
 
+	res.SetRawBits(this->GetRawBits() - num.GetRawBits());
 	return (res);
 }
 
-Fixed	Fixed::operator*(const Fixed& num)
+Fixed	Fixed::operator*(const Fixed& num) const
 {
 	Fixed res(this->ToFloat() * num.ToFloat());
 
 	return (res);
 }
 
-Fixed	Fixed::operator/(const Fixed& num)
+Fixed	Fixed::operator/(const Fixed& num) const
 {
 	Fixed	res(this->ToFloat() / num.ToFloat());
 
@@ -151,6 +153,20 @@ const Fixed&	Fixed::Min(const Fixed& numOne, const Fixed& numTwo)
 }
 
 const Fixed&	Fixed::Max(const Fixed& numOne, const Fixed& numTwo)
+{
+	if (numOne > numTwo)
+		return (numOne);
+	return (numTwo);
+}
+
+Fixed&	Fixed::Min(Fixed& numOne, Fixed& numTwo)
+{
+	if (numOne > numTwo)
+		return (numTwo);
+	return (numOne);	
+}
+
+Fixed&	Fixed::Max(Fixed& numOne, Fixed& numTwo)
 {
 	if (numOne > numTwo)
 		return (numOne);

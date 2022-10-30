@@ -24,10 +24,10 @@ class Fixed
 
 		// Overloaded operators
 		Fixed&	operator=(const Fixed& copy);
-		Fixed	operator+(const Fixed& num);
-		Fixed	operator-(const Fixed& num);
-		Fixed	operator*(const Fixed& num);
-		Fixed	operator/(const Fixed& num);
+		Fixed	operator+(const Fixed& num) const;
+		Fixed	operator-(const Fixed& num) const;
+		Fixed	operator*(const Fixed& num) const;
+		Fixed	operator/(const Fixed& num) const;
 		Fixed&	operator++(void);
 		Fixed&	operator--(void);
 		Fixed	operator++(int);
@@ -50,6 +50,8 @@ class Fixed
 		// Other public functions
 		static const Fixed&	Min(const Fixed& numOne, const Fixed& numTwo);
 		static const Fixed&	Max(const Fixed& numOne, const Fixed& numTwo);
+		static Fixed&		Min(Fixed& numOne, Fixed& numTwo);
+		static Fixed&		Max(Fixed& numOne, Fixed& numTwo);
 };
 
 // Overloaded ostream

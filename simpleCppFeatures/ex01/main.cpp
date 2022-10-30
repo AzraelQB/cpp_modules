@@ -15,6 +15,6 @@ int main(void)
 	for (int i = 0; i < 4; i++)
 		aZombie[i].Announce();
 	delete [] aZombie;
-	aZombie = nullptr;//NULL
+	aZombie = NULL;
 	return (0);
 }
