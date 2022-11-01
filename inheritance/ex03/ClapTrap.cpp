@@ -6,7 +6,7 @@ using std::endl;
 ClapTrap::ClapTrap(void): 
 	name("default"), 
 	hitPts(10), 
-	energy(10),
+	energy(10), 
 	attackDmg(0)
 {
 	cout << "CT default constructor called" << endl;
@@ -14,8 +14,8 @@ ClapTrap::ClapTrap(void):
 
 ClapTrap::ClapTrap(string name): 
 	name(name), 
-	hitPts(10),
-	energy(10),
+	hitPts(10), 
+	energy(10), 
 	attackDmg(0)
 {
 	cout << "CT constructor called" << endl;
@@ -42,47 +42,52 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& other)
 	return (*this);
 }
 
-void	ClapTrap::Attack(const string& target)
+bool	ClapTrap::CheckHpEnergy(string type, string job)
 {
 	if (hitPts <= 0)
-		cout << "ClapTrap " << name << " can't attack since it's ded." << endl;
-	else if (energy <= 0)
-		cout << "ClapTrap " << name << " can't attack since no energy." << endl;
-	else
 	{
-		--energy;
-		cout << "ClapTrap " << name << " attacks " << target << " causing ";
-		cout << attackDmg << " points of damage!" << endl;
+		cout << type << ' ' << name << " can't " << job << " since it's ded" << endl;
+		return (true);
 	}
+	else if (energy <= 0)
+	{
+		cout << type << ' ' << name << " can't " << job << " since no energy" << endl;
+		return (true);
+	}
+	return (false);
+}
+
+void	ClapTrap::Attack(const string& target)
+{
+	if (CheckHpEnergy("CT", "attack"))
+		return ;
+	--energy;
+	cout << "ClapTrap " << name << " attacks " << target << " causing "
+		 << attackDmg << " points of damage!" << endl;
 }
 
 void	ClapTrap::TakeDamage(unsigned int amount)
 {
 	if (hitPts <= 0)
-		cout << "ClapTrap " << name << " is already ded." << endl;
+		cout << "ClapTrap " << name << " is already ded" << endl;
 	else
 	{
 		hitPts -= amount;
 		if (hitPts < 0)
 			hitPts = 0;
-		cout << "ClapTrap " << name << " takes " << amount;
-		cout << " points of damage. " << endl;
-		cout << "Now it has " << hitPts << " hp left" << endl;
+		cout << "ClapTrap " << name << " takes " << amount
+			 << " points of damage. " << endl
+			 << "Now it has " << hitPts << " hp left" << endl;
 	}
 }
 
 void	ClapTrap::BeRepaired(unsigned int amount)
 {
-	if (hitPts <= 0)
-		cout << "ClapTrap " << name << " can't repair since it's ded." << endl;
-	else if (energy <= 0)
-		cout << "ClapTrap " << name << " can't repair since no energy." << endl;
-	else
-	{
-		--energy;
-		hitPts += amount;
-		cout << "ClapTrap " << name << " repairs itself for " << amount;
-		cout << " hp." << endl;
-		cout << "Now it has " << hitPts << " hp." << endl;
-	}
+	if (CheckHpEnergy("CT", "repair"))
+		return ;
+	--energy;
+	hitPts += amount;
+	cout << "ClapTrap " << name << " repairs itself for " << amount
+		 << " hp." << endl 
+		 << "Now it has " << hitPts << " hp" << endl;
 }

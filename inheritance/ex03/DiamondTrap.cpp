@@ -50,5 +50,7 @@ void	DiamondTrap::Attack(const string& target)
 
 void	DiamondTrap::WhoAmI(void)
 {
+	if (CheckHpEnergy("DT", "introduce itself"))
+		return ;
 	cout << "I am DiamondTrap " << name << ", aka " << ClapTrap::name << endl;
 }

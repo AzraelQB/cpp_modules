@@ -42,19 +42,16 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& other)
 
 void	ScavTrap::Attack(const string& target)
 {
-	if (hitPts <= 0)
-		cout << "ScavTrap " << name << " can't attack since it's ded" << endl;
-	else if (energy <= 0)
-		cout << "ScavTrap " << name << " can't attack since no energy" << endl;
-	else
-	{
-		--energy;
-		cout << "ScavTrap " << name << " attacks " << target << " causing ";
-		cout << attackDmg << " points of damage!" << endl;
-	}
+	if (CheckHpEnergy("ST", "attack"))
+		return ;
+	--energy;
+	cout << "ScavTrap " << name << " attacks " << target << " causing "
+		 << attackDmg << " points of damage!" << endl;
 }
 
 void	ScavTrap::GuardGate(void)
 {
+	if (CheckHpEnergy("ST", "gatekeep"))
+		return ;
 	cout << "ScavTrap " << name << " is now in Gate keeper mode" << endl;
 }

@@ -1,7 +1,6 @@
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
-# include <iostream>
 # include "ScavTrap.hpp" 
 # include "FragTrap.hpp" 
 

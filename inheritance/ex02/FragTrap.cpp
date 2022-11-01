@@ -42,19 +42,16 @@ FragTrap&	FragTrap::operator=(const FragTrap& other)
 
 void	FragTrap::Attack(const string& target)
 {
-	if (hitPts <= 0)
-		cout << "FragTrap " << name << " can't attack since it's ded" << endl;
-	else if (energy <= 0)
-		cout << "FragTrap " << name << " can't attack since no energy" << endl;
-	else
-	{
-		--energy;
-		cout << "FragTrap " << name << " attacks " << target << " causing ";
-		cout << attackDmg << " points of damage!" << endl;
-	}
+	if (CheckHpEnergy("FT", "attack"))
+		return ;
+	--energy;
+	cout << "FragTrap " << name << " attacks " << target << " causing "
+		 << attackDmg << " points of damage!" << endl;
 }
 
 void	FragTrap::HighFivesGuys(void)
 {
+	if (CheckHpEnergy("FT", "give high five"))
+		return ;
 	cout << "FragTrap " << name << ": - YESSS, HIGH FIVE!!!" << endl;
 }

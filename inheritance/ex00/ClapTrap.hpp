@@ -2,6 +2,7 @@
 # define CLAPTRAP_HPP
 
 #include <iostream>
+#include <string>
 
 using std::string;
 
@@ -12,6 +13,8 @@ class ClapTrap
 		int		hitPts;
 		int		energy;
 		int		attackDmg;
+		
+		bool	CheckHpEnergy(string type, string job);
 
 	public:
 		// Constructors
