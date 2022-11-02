@@ -2,19 +2,18 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include <string>
 
 using std::string;
 
 class Animal 
 {
-	private:
-		Animal(void);
-		Animal(const Animal& copy);
-
 	protected:
 		string	type;
 	
-	public:	
+	public:
+		Animal(void);
+		Animal(const Animal& copy);
 		virtual ~Animal(void);
 	
 		Animal&	operator=(const Animal& other);

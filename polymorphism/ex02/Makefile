@@ -1,13 +1,14 @@
 SRCS	= Animal.cpp Cat.cpp Dog.cpp Brain.cpp main.cpp
 OBJS	= $(SRCS:.cpp=.o)
-NAME	= Ex01
+NAME	= Ex02
+HEADERS = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 CC		= clang++
 FLAGS	= -Wall -Wextra -Werror #-std=c++98
 
 
 all:	$(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS) Makefile
 	$(CC) $(FLAGS) -c $<  -o $(<:.cpp=.o)
 
 .PHONY:	all clean fclean re

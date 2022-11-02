@@ -2,6 +2,7 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include <string>
 
 using std::string;
 

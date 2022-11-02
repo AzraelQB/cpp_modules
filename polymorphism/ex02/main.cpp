@@ -6,6 +6,7 @@ using std::endl;
 
 int main(void)
 {
+	//Animal newAnimal;
 	Cat* b	= new Cat();
 	Cat* c	= new Cat(*b);
 	Cat* d	= new Cat();
@@ -24,7 +25,6 @@ int main(void)
 	cout << &c << ' ' << c->GetMind() << endl;
 	delete b;
 	delete c;
-	//delete d;
 	cout << endl;
 	for (int i = 0; i < 10; i++)
 	{

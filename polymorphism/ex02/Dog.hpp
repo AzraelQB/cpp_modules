@@ -18,7 +18,7 @@ class Dog: public Animal
 
 		Brain*	GetMind(void) const;
 
-		void MakeSound(void) const override;
+		void MakeSound(void) const /*override*/;
 };
 
 #endif

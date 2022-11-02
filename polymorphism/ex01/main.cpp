@@ -21,10 +21,8 @@ int main(void)
 	cout << d->GetMind() << ' ' << c->GetMind() << endl;
 	cout << endl;
 	delete d;
-	cout << &c << ' ' << c->GetMind() << endl;
 	delete b;
 	delete c;
-	//delete d;
 	cout << endl;
 	for (int i = 0; i < 10; i++)
 	{
@@ -36,5 +34,11 @@ int main(void)
 	cout << endl;
 	for (int i = 0; i < 10; i++)
 		delete meta[i];
+
+	// Dog basic;
+	// {
+	// 	Dog tmp = basic;
+	// }
+	// delete basic.GetMind();
 	return 0;
 }
