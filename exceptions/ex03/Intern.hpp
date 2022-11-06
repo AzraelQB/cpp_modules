@@ -12,10 +12,6 @@ class Intern
 {
 	private:
 		static const int	kFormsAmount = 3;
-		typedef struct s_forms {
-			string	name;
-			Form*	pForm;
-		} t_forms;
 	
 	public:
 		Intern(void);
