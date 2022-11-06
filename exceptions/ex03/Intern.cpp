@@ -27,25 +27,36 @@ Intern&	Intern::operator=(const Intern& other)
 	return (*this);
 }
 
+static Form	*makePresident(const string target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+static Form	*makeRobot(const string target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+static Form	*makeShrubbery(const string target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
 Form*	Intern::MakeForm(string name, string target)
 {
-	Form*	ret = NULL;
-	t_forms	availableForms[kFormsAmount] = {
-		{ "presidential pardon", new PresidentialPardonForm(target) },
-		{ "robotomy request", new RobotomyRequestForm(target) },
-		{ "shrubbery creation", new ShrubberyCreationForm(target) }
-	};
+	Form* (*availableForms[])(const string target) = {
+		&makePresident, &makeRobot, &makeShrubbery };
+	string forms[] = { 
+		"presidential pardon", "robotomy request", "shrubbery creation" };
 
-	for (int i = 0; i < kFormsAmount; ++i)
+	for (int i = 0; i < kFormsAmount; i++)
 	{
-		if (name == availableForms[i].name)
-			ret = availableForms[i].pForm;
-		else
-			delete availableForms[i].pForm;
+		if (name == forms[i])
+		{
+			cout << "Intern created form " << name << endl;
+			return (availableForms[i](target));
+		}
 	}
-	if (ret)
-		cout << "Intern created form " << name << endl;
-	else
-		cout << "Intern could not find a form " << name << endl; 
-	return (ret);
+	cout << "Intern could not find a form " << name << endl; 
+	return (nullptr);
 }

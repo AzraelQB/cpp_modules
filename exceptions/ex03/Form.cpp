@@ -23,7 +23,7 @@ Form::Form(const string& name, const int toSign, const int toExec):
 		throw Form::GradeTooLowException();
 	if  (toSign < Bureaucrat::kMaxGrade || toExec < Bureaucrat::kMaxGrade)
 		throw Form::GradeTooHighException();
-	//cout << "Form " << kName << " created" << endl;
+	cout << "Form " << kName << " created" << endl;
 }
 		
 Form::Form(const Form& other):
@@ -37,7 +37,7 @@ Form::Form(const Form& other):
 
 Form::~Form(void)
 {
-	//cout << "Form " << kName << " destroyed" << endl;
+	cout << "Form " << kName << " destroyed" << endl;
 }
 
 Form&	Form::operator=(const Form& other)
