@@ -24,8 +24,7 @@ void	ScalarConverter(string literal)
 	float	toFloat = static_cast<float>(toDouble);
 
 	// single char
-	if (literal.size() == 1 && isprint(literal[0]) && !std::isdigit(literal[0]))
-	{
+	if (literal.size() == 1 && isprint(literal[0]) && !std::isdigit(literal[0])) {
 		cout << "char: '" << literal[0] << "'" << endl;
 		cout << "int: " << static_cast<int>(literal[0]) << endl;
 		cout << "float: " << static_cast<float>(literal[0]) << ".0f" << endl;
@@ -33,8 +32,7 @@ void	ScalarConverter(string literal)
 		return ;
 	}
 	// input is not a digit>
-	if (toDouble == 0 && literal[0] != '0')
-	{
+	if (toDouble == 0 && literal[0] != '0') {
 		cout << "all conversions impossible" << endl;
 		return ;
 	}
@@ -52,13 +50,11 @@ void	ScalarConverter(string literal)
 	else
 		cout << "int: " << toInt << endl;
 
-	if (toDouble - toInt == 0)
-	{
+	if (toDouble - toInt == 0) {
 		cout << "float: " << toFloat << ".0f" << endl;
 		cout << "double: " << toDouble << ".0" << endl;
 	}
-	else
-	{
+	else {
 		cout << "float: " << toFloat << "f" << endl;
 		cout << "double: " << toDouble << endl;
 	}
@@ -66,8 +62,7 @@ void	ScalarConverter(string literal)
   
 int main(int argc, char** argv)
 {
-	if (argc != 2)
-	{
+	if (argc != 2) {
 		cerr << "Error: pass one literal as a parameter to the program" << endl;
 		return (1);
 	}

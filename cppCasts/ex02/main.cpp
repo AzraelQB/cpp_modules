@@ -13,8 +13,7 @@ Base* generate()
 	srand(time(NULL));
 
 	int n = rand() % 3;
-	switch (n) 
-	{
+	switch (n) {
 		case 0:
 			cout << "A class generated" << endl;
 			return new A;
@@ -42,24 +41,19 @@ void identify(Base* p)
 
 void identify(Base& p) 
 {
-	try 
-	{
+	try {
 		A& descendant = dynamic_cast<A&>(p); 
 		(void)descendant; // Needed by subject
 		cout << "A class was identified" << endl;
 		return;
 	} catch (std::exception &e) {}
-
-	try 
-	{
+	try {
 		B& descendant = dynamic_cast<B&>(p); 
 		(void)descendant;
 		cout << "B class was identified" << endl;
 		return;
 	} catch (std::exception &e) {}
-
-	try 
-	{
+	try {
 		C& descendant = dynamic_cast<C&>(p); 
 		(void)descendant;
 		cout << "C class was identified" << endl;
